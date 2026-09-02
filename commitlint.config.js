@@ -1,8 +1,13 @@
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
-  rules: {
-    'header-max-length': [2, 'always', 72],
-    'type-enum': [0],
-    'header-pattern': [2, 'always', /^TICKET-\d+:\s.+$/],
-  },
+  parserPreset: {
+    parserOpts: {
+      headerPattern: /^(TICKET-\d+): (.+)$/,
+      headerCorrespondence: ['type', 'subject'],
+    },
+  },
+  rules: {
+    'header-max-length': [2, 'always', 72],
+    'type-empty': [2, 'never'],
+    'subject-empty': [2, 'never'],
+  },
 };
